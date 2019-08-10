@@ -1,5 +1,6 @@
 const express = require("express");
 const next = require("next");
+const path = require("path");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -11,6 +12,10 @@ app
   .prepare()
   .then(() => {
     const server = express();
+
+    server.get("/favicon.ico", (req, res) => {
+      return res.sendFile(path.join(__dirname, "favicon.ico"));
+    });
 
     server.get("/:slug", (req, res) => {
       const queryParams = { slug: req.params.slug };
