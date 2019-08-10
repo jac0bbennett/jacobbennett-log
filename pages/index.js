@@ -28,10 +28,7 @@ const Home = props => {
           return (
             <div className="log-entry" key={post.publishedAt}>
               {post.content.featureImage ? (
-                <Link
-                  as={`/${post.content.slug}`}
-                  href={`/post?slug=${post.content.slug}`}
-                >
+                <Link href={`/${post.content.slug}`}>
                   <a>
                     <div className="log-entry-imgCont">
                       <img
@@ -42,10 +39,7 @@ const Home = props => {
                   </a>
                 </Link>
               ) : null}
-              <Link
-                as={`/${post.content.slug}`}
-                href={`/post?slug=${post.content.slug}`}
-              >
+              <Link href={`/${post.content.slug}`}>
                 <a>
                   <h1 className="log-entry-title">{post.content.title}</h1>
                 </a>
