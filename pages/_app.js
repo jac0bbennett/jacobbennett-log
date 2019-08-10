@@ -32,9 +32,7 @@ class MainApp extends App {
                 <span className="menu-title">Menu</span>
 
                 <div className="nav">
-                  <Link href="/">
-                    <a>Log Home</a>
-                  </Link>
+                  <a href="/">Log Home</a>
                   <a href="//jacobbennett.us/#portfolio">Portfolio</a>
                   <a href="//jacobbennett.us//#about">About</a>
                   <a href="//jacobbennett.us//#contact">Contact</a>
