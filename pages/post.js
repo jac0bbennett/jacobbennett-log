@@ -61,7 +61,9 @@ const Post = props => {
       </Head>
       <div id="header">
         <div className="post-author">
-          <a href="/">{post.author.name}</a>
+          <Link href="/">
+            <a>{post.author.name}</a>
+          </Link>
         </div>
         <Hamburger setNavOpen={props.page.setNavOpen} />
         <div className="post-title">{post.content.title}</div>
