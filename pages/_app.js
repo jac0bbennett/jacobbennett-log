@@ -3,7 +3,7 @@ import Footer from "../components/footer";
 import { Provider, Subscribe } from "unstated";
 import PageContainer from "../containers/PageContainer";
 import App, { Container } from "next/app";
-import Link from "next/link";
+import Head from "next/head";
 
 const pageCont = new PageContainer();
 
@@ -16,6 +16,9 @@ class MainApp extends App {
         <Subscribe to={[PageContainer]}>
           {page => (
             <React.Fragment>
+              <Head>
+                <link rel="shortcut icon" href="/favicon.ico" />
+              </Head>
               <div
                 className="sidemenu"
                 style={page.state.navOpen ? { right: "0px" } : {}}

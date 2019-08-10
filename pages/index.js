@@ -15,7 +15,6 @@ const Home = props => {
     <React.Fragment>
       <Head>
         <title>Jacob Bennett</title>
-        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <div id="header" style={{ minHeight: "100vh", justifyContent: "center" }}>
         <Hamburger setNavOpen={props.page.setNavOpen} />
