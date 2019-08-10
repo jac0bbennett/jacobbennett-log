@@ -4,6 +4,7 @@ import { Provider, Subscribe } from "unstated";
 import PageContainer from "../containers/PageContainer";
 import App, { Container } from "next/app";
 import Head from "next/head";
+import Link from "next/link";
 
 const pageCont = new PageContainer();
 
