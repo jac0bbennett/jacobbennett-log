@@ -210,7 +210,7 @@ footer {
 }
 
 .fixed-header .hamcontainer {
-  top: 0px;
+  top: 2px;
   right: 150px;
 }
 
@@ -219,7 +219,7 @@ footer {
 .fixed-header .bar3 {
   width: 25px;
   height: 3px;
-  margin: 6px 0;
+  margin: 5px 0;
 }
 
 .sidemenu {
