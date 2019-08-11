@@ -1,15 +1,39 @@
 import Hamburger from "../components/hamburger";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 
 const Home = props => {
   const contents = props.contents;
 
+  const [offset, setOffset] = useState(0);
+
   useEffect(() => {
     props.page.setNavOpen(false);
   }, [props.page]);
+
+  const scrollListener = e => {
+    setOffset(window.pageYOffset);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollListener);
+
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, []);
+
+  const calcTitleOffset = () => {
+    const eq = -20 + offset / 12;
+    return eq < 50 ? (offset === 0 ? "-20vh" : eq.toString() + "vh") : "50vh";
+  };
+
+  const calcArrowOffset = () => {
+    const eq = 15 + offset / 50;
+    return eq < 100 ? (offset === 0 ? "15vh" : eq.toString() + "vh") : "50vh";
+  };
 
   return (
     <React.Fragment>
@@ -18,10 +42,23 @@ const Home = props => {
       </Head>
       <div id="header" style={{ minHeight: "100vh", justifyContent: "center" }}>
         <Hamburger setNavOpen={props.page.setNavOpen} />
-        <div className="post-title" style={{ marginTop: "-20vh" }}>
+        <div
+          className="post-title"
+          style={{
+            marginTop: calcTitleOffset()
+          }}
+        >
           Jacob Bennett's Log
         </div>
-        <div className="downarrow">&#8595;</div>
+
+        <div
+          className="downarrow"
+          style={{
+            bottom: calcArrowOffset()
+          }}
+        >
+          &#8595;
+        </div>
       </div>
       <div className="log-wrapper">
         {contents.map(post => {
