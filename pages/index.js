@@ -26,13 +26,13 @@ const Home = props => {
   }, []);
 
   const calcTitleOffset = () => {
-    const eq = -20 + offset / 12;
-    return eq < 50 ? (offset === 0 ? "-20vh" : eq.toString() + "vh") : "50vh";
+    const eq = -10 + offset / 15;
+    return eq < 25 ? (offset === 0 ? "-10%" : eq.toString() + "%") : "25%";
   };
 
   const calcArrowOffset = () => {
-    const eq = 15 + offset / 50;
-    return eq < 100 ? (offset === 0 ? "15vh" : eq.toString() + "vh") : "50vh";
+    const eq = 15 - offset / 80;
+    return eq > 8 ? (offset === 0 ? "15%" : eq.toString() + "%") : "8%";
   };
 
   return (
