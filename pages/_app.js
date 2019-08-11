@@ -52,6 +52,7 @@ class MainApp extends App {
 
         oldPage = false;
       }
+      pageCont.setNavOpen(false);
     });
 
     Router.beforePopState(() => {

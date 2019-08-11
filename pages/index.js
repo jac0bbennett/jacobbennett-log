@@ -9,10 +9,6 @@ const Home = props => {
 
   const [offset, setOffset] = useState(0);
 
-  useEffect(() => {
-    props.page.setNavOpen(false);
-  }, [props.page]);
-
   const scrollListener = e => {
     setOffset(window.pageYOffset);
   };
@@ -31,8 +27,8 @@ const Home = props => {
   };
 
   const calcArrowOffset = () => {
-    const eq = 15 - offset / 80;
-    return eq > 8 ? (offset === 0 ? "15%" : eq.toString() + "%") : "8%";
+    const eq = 10 - offset / 80;
+    return eq > 5 ? (offset === 0 ? "10%" : eq.toString() + "%") : "5%";
   };
 
   return (
