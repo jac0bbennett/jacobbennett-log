@@ -5,6 +5,7 @@ import PageContainer from "../containers/PageContainer";
 import LoadbarContainer from "../containers/LoadbarContainer";
 import LoadingBar from "../components/LoadingBar/loadingBar";
 import Hamburger from "../components/hamburger";
+import Sidemenu from "../components/sidemenu";
 import App, { Container } from "next/app";
 import Head from "next/head";
 import Link from "next/link";
@@ -15,6 +16,19 @@ const loadbarCont = new LoadbarContainer();
 
 class MainApp extends App {
   state = { loadbarInterval: null };
+
+  static async getInitialProps({ Component, router, ctx }) {
+    let pageProps = {};
+    ctx.appId = "FFDSGEWK";
+    ctx.access_token = "SFsI0r3izG2pM7oTRu4a9K3phIEgl18DhbP";
+    const query = router.query;
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps({ query, ctx });
+    }
+
+    return { pageProps };
+  }
 
   scrollListener = e => {
     const fixedHeader = document.getElementById("fixed-header");
@@ -100,30 +114,7 @@ class MainApp extends App {
                 </div>
                 <Hamburger setNavOpen={page.setNavOpen} />
               </div>
-              <div
-                className="sidemenu"
-                style={page.state.navOpen ? { right: "0px" } : {}}
-              >
-                <div
-                  className="exit"
-                  onClick={() => {
-                    page.setNavOpen(false);
-                  }}
-                >
-                  <div className="bar1" />
-                  <div className="bar2" />
-                </div>
-                <span className="menu-title">Menu</span>
-
-                <div className="nav">
-                  <Link href="/">
-                    <a>Log Home</a>
-                  </Link>
-                  <a href="//jacobbennett.us/#portfolio">Portfolio</a>
-                  <a href="//jacobbennett.us//#about">About</a>
-                  <a href="//jacobbennett.us//#contact">Contact</a>
-                </div>
-              </div>
+              <Sidemenu page={page} />
               <Container>
                 <Component {...pageProps} page={page} />
               </Container>
