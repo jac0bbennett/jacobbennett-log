@@ -5,10 +5,38 @@ import PageContainer from "../containers/PageContainer";
 import App, { Container } from "next/app";
 import Head from "next/head";
 import Link from "next/link";
+import Router from "next/router";
 
 const pageCont = new PageContainer();
 
 class MainApp extends App {
+  componentDidMount() {
+    history.scrollRestoration = "manual";
+    const cachedScroll = [];
+    let oldPage = false;
+
+    Router.events.on("routeChangeStart", () => {
+      if (!oldPage) {
+        cachedScroll.push(document.documentElement.scrollTop);
+      }
+    });
+
+    Router.events.on("routeChangeComplete", () => {
+      if (oldPage) {
+        document.documentElement.scrollTop = cachedScroll.pop();
+
+        oldPage = false;
+      }
+    });
+
+    Router.beforePopState(() => {
+      oldPage = true;
+      const curScroll = document.documentElement.scrollTop;
+
+      return true;
+    });
+  }
+
   render() {
     const { Component, pageProps } = this.props;
 
