@@ -21,6 +21,8 @@ class MainApp extends App {
 
     const headerHeight = document.getElementById("header").clientHeight;
 
+    fixedHeader.style.transition = "150ms ease-in-out";
+
     if (window.scrollY >= headerHeight) {
       fixedHeader.classList.add("scrolled-fixed-header");
     } else {
