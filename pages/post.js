@@ -1,6 +1,6 @@
 import axios from "axios";
 import Hamburger from "../components/hamburger";
-import Timestamp from "react-timestamp";
+import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
 import Head from "next/head";
 import Link from "next/link";
@@ -74,11 +74,19 @@ const Post = props => {
         ) : null}
 
         <div className="post-timestamp">
-          <Timestamp relative date={post.publishedAt} />
+          <Moment fromNow withTitle>
+            {post.publishedAt}
+          </Moment>
           {post.updatedAt ? (
             <React.Fragment>
               {" - "}
-              (Updated {<Timestamp relative date={post.updatedAt} />})
+              (Updated{" "}
+              {
+                <Moment fromNow withTitle>
+                  {post.updatedAt}
+                </Moment>
+              }
+              )
             </React.Fragment>
           ) : null}
         </div>
