@@ -19,8 +19,8 @@ class MainApp extends App {
 
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
-    ctx.appId = "FFDSGEWK";
-    ctx.access_token = "SFsI0r3izG2pM7oTRu4a9K3phIEgl18DhbP";
+    ctx.appId = pageCont.state.appId;
+    ctx.access_token = pageCont.state.access_token;
     const query = router.query;
 
     if (Component.getInitialProps) {
@@ -76,11 +76,12 @@ class MainApp extends App {
     });
 
     window.addEventListener("scroll", this.scrollListener);
-
-    return () => {
-      window.removeEventListener("scroll", this.scrollListener);
-    };
   }
+
+  componentWillUnmount = () => {
+    clearInterval(this.state.loadbarInterval);
+    window.removeEventListener("scroll", this.scrollListener);
+  };
 
   loadbarAutoProgress = () => {
     if (loadbarCont.state.progress < 80) {
@@ -109,7 +110,7 @@ class MainApp extends App {
               <div id="fixed-header" className="fixed-header">
                 <div className="post-author">
                   <Link href="/">
-                    <a>Jacob Bennett</a>
+                    <a>{page.state.name}</a>
                   </Link>
                 </div>
                 <Hamburger setNavOpen={page.setNavOpen} />

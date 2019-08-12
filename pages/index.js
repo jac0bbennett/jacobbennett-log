@@ -34,7 +34,7 @@ const Home = props => {
   return (
     <React.Fragment>
       <Head>
-        <title>Jacob Bennett</title>
+        <title>{props.page.state.name}</title>
       </Head>
       <div id="header" style={{ minHeight: "100vh", justifyContent: "center" }}>
         <Hamburger setNavOpen={props.page.setNavOpen} />
@@ -44,7 +44,7 @@ const Home = props => {
             marginTop: calcTitleOffset()
           }}
         >
-          Jacob Bennett's Log
+          {props.page.state.name}'s Log
         </div>
 
         <div

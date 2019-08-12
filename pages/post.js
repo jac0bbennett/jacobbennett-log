@@ -34,7 +34,9 @@ const Post = props => {
   return (
     <React.Fragment>
       <Head>
-        <title>{post.content.title} | Jacob Bennett</title>
+        <title>
+          {post.content.title} | {props.page.state.name}
+        </title>
         {post.content.featureImage ? (
           <React.Fragment>
             <meta name="twitter:card" content="summary_large_image" />
@@ -52,7 +54,7 @@ const Post = props => {
           content={
             post.content.subtitle
               ? post.content.subtitle
-              : "Article by Jacob Bennett"
+              : "Article by " + props.page.state.name
           }
         />
         {post.content.featureImage ? (
@@ -62,7 +64,7 @@ const Post = props => {
       <div id="header">
         <div className="post-author">
           <Link href="/">
-            <a>Jacob Bennett</a>
+            <a>{props.page.state.name}</a>
           </Link>
         </div>
         <Hamburger setNavOpen={props.page.setNavOpen} />
@@ -115,7 +117,6 @@ Post.getInitialProps = async ({ query, ctx }) => {
       return { post: req.data.contents[0] };
     } else {
       const noPageData = {
-        author: { name: "Jacob Bennett" },
         publishedAt: null,
         content: {
           title: "Page doesn't exist!",
