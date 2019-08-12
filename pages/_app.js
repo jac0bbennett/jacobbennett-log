@@ -119,7 +119,7 @@ class MainApp extends App {
               <Container>
                 <Component {...pageProps} page={page} />
               </Container>
-              <Footer />
+              <Footer page={page} />
             </React.Fragment>
           )}
         </Subscribe>
