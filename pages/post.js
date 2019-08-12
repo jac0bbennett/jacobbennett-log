@@ -99,8 +99,8 @@ const Post = props => {
   );
 };
 
-Post.getInitialProps = async ({ query, ctx }) => {
-  const filter = { contentType: "post", fields: { slug: query.slug } };
+Post.getInitialProps = async ({ ctx }) => {
+  const filter = { contentType: "post", fields: { slug: ctx.query.slug } };
   try {
     const req = await axios.get(
       "https://milk.jwb.cloud/api/cdn/" +

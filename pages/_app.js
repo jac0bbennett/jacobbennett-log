@@ -17,14 +17,13 @@ const loadbarCont = new LoadbarContainer();
 class MainApp extends App {
   state = { loadbarInterval: null };
 
-  static async getInitialProps({ Component, router, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
     ctx.appId = pageCont.state.appId;
     ctx.access_token = pageCont.state.access_token;
-    const query = router.query;
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps({ query, ctx });
+      pageProps = await Component.getInitialProps({ ctx });
     }
 
     return { pageProps };
