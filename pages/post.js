@@ -78,7 +78,7 @@ const Post = props => {
           {post.updatedAt ? (
             <React.Fragment>
               {" - "}
-              (Updated at <Timestamp relative date={post.updatedAt} />)
+              (Updated {<Timestamp relative date={post.updatedAt} />})
             </React.Fragment>
           ) : null}
         </div>
