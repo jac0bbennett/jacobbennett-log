@@ -98,6 +98,7 @@ class MainApp extends App {
             <React.Fragment>
               <Head>
                 <link rel="shortcut icon" href="/favicon.ico" />
+                <meta name="theme-color" content="#b44141" />
               </Head>
               <LoadingBar
                 id="loadingbar"

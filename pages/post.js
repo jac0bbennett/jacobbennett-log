@@ -4,32 +4,9 @@ import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect } from "react";
 
 const Post = props => {
   const post = props.post;
-
-  const scrollListener = e => {
-    const postBody = document.getElementById("post-body");
-
-    postBody.classList.add("non-scrolled-post");
-
-    const headerHeight = document.getElementById("header").clientHeight;
-
-    if (window.scrollY >= headerHeight) {
-      postBody.classList.remove("non-scrolled-post");
-    } else {
-      postBody.classList.add("non-scrolled-post");
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", scrollListener);
-
-    return () => {
-      window.removeEventListener("scroll", scrollListener);
-    };
-  }, []);
 
   return (
     <React.Fragment>
@@ -108,7 +85,10 @@ const Post = props => {
 };
 
 Post.getInitialProps = async ({ ctx }) => {
-  const filter = { contentType: "post", fields: { slug: ctx.query.slug } };
+  const filter = {
+    contentType: "post",
+    fields: { slug: ctx.query.slug }
+  };
   try {
     const req = await axios.get(
       "https://milk.jwb.cloud/api/cdn/" +

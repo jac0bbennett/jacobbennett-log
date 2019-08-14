@@ -23,7 +23,7 @@ const Home = props => {
 
   const calcTitleOffset = () => {
     const eq = -10 + offset / 15;
-    return eq < 25 ? (offset === 0 ? "-10%" : eq.toString() + "%") : "25%";
+    return eq < 30 ? (offset === 0 ? "-10%" : eq.toString() + "%") : "30%";
   };
 
   const calcArrowOffset = () => {
@@ -39,7 +39,7 @@ const Home = props => {
       <div id="header" style={{ minHeight: "100vh", justifyContent: "center" }}>
         <Hamburger setNavOpen={props.page.setNavOpen} />
         <div
-          className="post-title"
+          className="post-title home-title"
           style={{
             marginTop: calcTitleOffset()
           }}
@@ -59,7 +59,7 @@ const Home = props => {
       <div className="log-wrapper">
         {contents.map(post => {
           return (
-            <div className="log-entry" key={post.publishedAt}>
+            <div className="log-entry" key={post.uuid}>
               {post.content.featureImage ? (
                 <Link
                   as={`/${post.content.slug}`}
