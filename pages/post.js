@@ -68,7 +68,10 @@ const Post = props => {
           ) : null}
         </div>
       </div>
-      <div id="post-body" className="non-scrolled-post">
+      <div
+        id="post-body"
+        style={post.featureImage ? {} : { marginTop: "-20px" }}
+      >
         {post.content.featureImage ? (
           <img
             alt={post.content.title}
