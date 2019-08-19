@@ -70,7 +70,7 @@ const Post = props => {
       </div>
       <div
         id="post-body"
-        style={post.featureImage ? {} : { marginTop: "-20px" }}
+        style={post.content.featureImage ? {} : { marginTop: "-20px" }}
       >
         {post.content.featureImage ? (
           <img
