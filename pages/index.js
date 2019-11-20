@@ -35,6 +35,10 @@ const Home = props => {
     <React.Fragment>
       <Head>
         <title>{props.page.state.name}</title>
+        <meta
+          property="og:description"
+          content="Logs written by Jacob Bennett"
+        />
       </Head>
       <div id="header" style={{ minHeight: "100vh", justifyContent: "center" }}>
         <Hamburger setNavOpen={props.page.setNavOpen} />
