@@ -89,16 +89,14 @@ const Post = props => {
 
 Post.getInitialProps = async ({ ctx }) => {
   const filter = {
-    contentType: "post",
+    content_type: "post",
     fields: { slug: ctx.query.slug },
     access_token: ctx.access_token
   };
   try {
     const req = await axios.post(
       "https://milk.jwb.cloud/api/cdn/" + ctx.appId,
-      {
-        data: filter
-      }
+      filter
     );
     if (req.data.error) {
       console.log(req.data.error);

@@ -106,9 +106,7 @@ Home.getInitialProps = async ({ ctx }) => {
   try {
     const req = await axios.post(
       "https://milk.jwb.cloud/api/cdn/" + ctx.appId,
-      {
-        data: filter
-      }
+      filter
     );
     if (req.data.error) {
       console.log(req.data.error);
