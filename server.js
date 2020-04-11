@@ -17,9 +17,16 @@ app
       return res.sendFile(path.join(__dirname, "favicon.ico"));
     });
 
-    server.get("/:slug", (req, res) => {
+    server.get("/post/:slug", (req, res) => {
       const queryParams = { slug: req.params.slug };
       return app.render(req, res, "/post", queryParams);
+    });
+
+    server.get("/tag/:tag", (req, res) => {
+      const queryParams = {
+        tag: req.params.tag.charAt(0).toUpperCase() + req.params.tag.slice(1)
+      };
+      return app.render(req, res, "/tag", queryParams);
     });
 
     server.get("*", (req, res) => {

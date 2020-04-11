@@ -66,7 +66,7 @@ const Home = props => {
             <div className="log-entry" key={post.uuid}>
               {post.content.featureImage ? (
                 <Link
-                  as={`/${post.content.slug}`}
+                  as={`/post/${post.content.slug}`}
                   href={`/post?slug=${post.content.slug}`}
                 >
                   <a>
@@ -80,7 +80,7 @@ const Home = props => {
                 </Link>
               ) : null}
               <Link
-                as={`/${post.content.slug}`}
+                as={`/post/${post.content.slug}`}
                 href={`/post?slug=${post.content.slug}`}
               >
                 <a>

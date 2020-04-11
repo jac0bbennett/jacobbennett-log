@@ -211,6 +211,23 @@ footer {
   font-size: 11pt;
 }
 
+.post-tag {
+  display: inline-block;
+  background: #ffe5c8;
+  padding: 5px;
+  margin-right: 10px;
+  font-size: 11pt;
+  transition: 200ms ease;
+}
+
+a > .post-tag {
+  color: #000;
+}
+
+.post-tag:hover {
+  background: #fdd19e;
+}
+
 .hamcontainer {
   position: absolute;
   right: 45px;

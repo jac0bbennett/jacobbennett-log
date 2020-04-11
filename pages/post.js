@@ -82,6 +82,24 @@ const Post = props => {
         <div className="wrapper">
           <ReactMarkdown source={post.content.body} />
         </div>
+        {post.content.tags && post.content.tags.length > 0 ? (
+          <div className="post-tags">
+            <div style={{ fontSize: "12pt" }}>Tags:</div>
+            {post.content.tags.map((tag, index) => {
+              return (
+                <Link
+                  as={`/tag/${tag.toLowerCase()}`}
+                  href={`/tag?tag=${tag}`}
+                  key={index}
+                >
+                  <a>
+                    <span className="post-tag">{tag}</span>
+                  </a>
+                </Link>
+              );
+            })}
+          </div>
+        ) : null}
       </div>
     </React.Fragment>
   );
