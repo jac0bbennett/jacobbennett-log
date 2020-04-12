@@ -3,7 +3,7 @@ import Link from "next/link";
 const LogEntry = props => {
   const post = props.post;
   return (
-    <div className="log-entry" key={post.uuid}>
+    <div className="log-entry">
       {post.content.featureImage ? (
         <Link
           as={`/post/${post.content.slug}`}

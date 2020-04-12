@@ -62,7 +62,7 @@ const Home = props => {
       </div>
       <div className="log-wrapper">
         {contents.map(post => {
-          return <LogEntry post={post} />;
+          return <LogEntry post={post} key={post.uuid} />;
         })}
       </div>
     </React.Fragment>

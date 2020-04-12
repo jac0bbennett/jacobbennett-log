@@ -23,10 +23,14 @@ app
     });
 
     server.get("/tag/:tag", (req, res) => {
-      const queryParams = {
-        tag: req.params.tag.charAt(0).toUpperCase() + req.params.tag.slice(1)
-      };
-      return app.render(req, res, "/tag", queryParams);
+      if (req.params.tag === req.params.tag.toLowerCase()) {
+        const queryParams = {
+          tag: req.params.tag
+        };
+        return app.render(req, res, "/tag", queryParams);
+      } else {
+        return res.redirect("/tag/" + req.params.tag.toLowerCase());
+      }
     });
 
     server.get("*", (req, res) => {

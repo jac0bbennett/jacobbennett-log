@@ -37,7 +37,7 @@ const Tag = props => {
       <div className="log-wrapper">
         {contents.length > 0 ? (
           contents.map(post => {
-            return <LogEntry post={post} />;
+            return <LogEntry post={post} key={post.uuid} />;
           })
         ) : (
           <span>No Content with that tag</span>
