@@ -6,7 +6,7 @@ import LoadbarContainer from "../containers/LoadbarContainer";
 import LoadingBar from "../components/LoadingBar/loadingBar";
 import Hamburger from "../components/hamburger";
 import Sidemenu from "../components/sidemenu";
-import App, { Container } from "next/app";
+import App from "next/app";
 import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
@@ -116,9 +116,7 @@ class MainApp extends App {
                 <Hamburger setNavOpen={page.setNavOpen} />
               </div>
               <Sidemenu page={page} />
-              <Container>
-                <Component {...pageProps} page={page} />
-              </Container>
+              <Component {...pageProps} page={page} />
               <Footer page={page} />
             </React.Fragment>
           )}

@@ -1,7 +1,7 @@
 import Hamburger from "../components/hamburger";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import LogEntry from "../components/logEntry";
 import Head from "next/head";
 
 const Home = props => {
@@ -62,36 +62,7 @@ const Home = props => {
       </div>
       <div className="log-wrapper">
         {contents.map(post => {
-          return (
-            <div className="log-entry" key={post.uuid}>
-              {post.content.featureImage ? (
-                <Link
-                  as={`/post/${post.content.slug}`}
-                  href={`/post?slug=${post.content.slug}`}
-                >
-                  <a>
-                    <div className="log-entry-imgCont">
-                      <img
-                        alt={post.content.title}
-                        src={post.content.featureImage}
-                      />
-                    </div>
-                  </a>
-                </Link>
-              ) : null}
-              <Link
-                as={`/post/${post.content.slug}`}
-                href={`/post?slug=${post.content.slug}`}
-              >
-                <a>
-                  <h1 className="log-entry-title">{post.content.title}</h1>
-                </a>
-              </Link>
-              <span className="log-entry-subtitle">
-                {post.content.subtitle}
-              </span>
-            </div>
-          );
+          return <LogEntry post={post} />;
         })}
       </div>
     </React.Fragment>
