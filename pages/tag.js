@@ -78,7 +78,10 @@ const Tag = props => {
 };
 
 Tag.getInitialProps = async ({ ctx }) => {
-  const tag = ctx.query.tag.charAt(0).toUpperCase() + ctx.query.tag.slice(1);
+  const tag = ctx.query.tag
+    .split("-")
+    .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+    .join(" ");
   const filter = {
     content_type: "post",
     fields: { tags: tag },

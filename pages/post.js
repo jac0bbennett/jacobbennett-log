@@ -8,6 +8,10 @@ import Link from "next/link";
 const Post = props => {
   const post = props.post;
 
+  const tagUrl = tag => {
+    return tag.toLowerCase().replace(" ", "-");
+  };
+
   return (
     <React.Fragment>
       <Head>
@@ -88,8 +92,8 @@ const Post = props => {
             {post.content.tags.map((tag, index) => {
               return (
                 <Link
-                  as={`/tag/${tag.toLowerCase()}`}
-                  href={`/tag?tag=${tag}`}
+                  as={`/tag/${tagUrl(tag)}`}
+                  href={`/tag?tag=${tagUrl(tag)}`}
                   key={index}
                 >
                   <a>
