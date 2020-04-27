@@ -49,9 +49,11 @@ const Tag = props => {
 
 Tag.getInitialProps = async ({ ctx }) => {
   const tag = ctx.query.tag
+    .replace("--", "!@#$")
     .split("-")
     .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-    .join(" ");
+    .join(" ")
+    .replace("!@#$", "-");
   const filter = {
     content_type: "post",
     fields: { tags: tag },

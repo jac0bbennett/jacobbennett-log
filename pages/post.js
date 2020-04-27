@@ -9,7 +9,7 @@ const Post = props => {
   const post = props.post;
 
   const tagUrl = tag => {
-    return tag.toLowerCase().replace(" ", "-");
+    return tag.toLowerCase().replace("-", "--").replace(" ", "-");
   };
 
   return (
