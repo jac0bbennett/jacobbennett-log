@@ -9,7 +9,7 @@ const Post = props => {
   const post = props.post;
 
   const tagUrl = tag => {
-    return tag.toLowerCase().replace("-", "--").replace(" ", "-");
+    return tag.replace("-", "--").replace(" ", "-");
   };
 
   return (
@@ -55,19 +55,12 @@ const Post = props => {
         ) : null}
 
         <div className="post-timestamp">
-          <Moment fromNow withTitle>
-            {post.publishedAt}
-          </Moment>
+          <Moment format="MMM M, YYYY, h:mma">{post.publishedAt}</Moment>
           {post.updatedAt ? (
             <React.Fragment>
               {" - "}
               (Updated{" "}
-              {
-                <Moment fromNow withTitle>
-                  {post.updatedAt}
-                </Moment>
-              }
-              )
+              {<Moment format="MMM M, YYYY, h:mma">{post.updatedAt}</Moment>})
             </React.Fragment>
           ) : null}
         </div>

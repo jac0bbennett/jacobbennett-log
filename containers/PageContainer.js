@@ -5,7 +5,7 @@ class PageContainer extends Container {
     navOpen: false,
     name: "Jacob Bennett",
     appId: "FFDSGEWK",
-    access_token: "SFsI0r3izG2pM7oTRu4a9K3phIEgl18DhbP"
+    access_token: "DnTqK38SUHIAxpGQQLJA66Eey1zH6T4CpT8"
   };
 
   setNavOpen = (bool = !this.state.navOpen) => {

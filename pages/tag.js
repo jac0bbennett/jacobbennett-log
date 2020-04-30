@@ -5,7 +5,7 @@ import Link from "next/link";
 import LogEntry from "../components/logEntry";
 
 const Tag = props => {
-  const tag = props.tag;
+  const tag = props.tag.toUpperCase();
   const contents = props.contents;
 
   return (
@@ -51,7 +51,6 @@ Tag.getInitialProps = async ({ ctx }) => {
   const tag = ctx.query.tag
     .replace("--", "!@#$")
     .split("-")
-    .map(s => s.charAt(0).toUpperCase() + s.substring(1))
     .join(" ")
     .replace("!@#$", "-");
   const filter = {
