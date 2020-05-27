@@ -4,27 +4,27 @@ const LogEntry = props => {
   const post = props.post;
   return (
     <div className="log-entry">
-      {post.content.featureImage ? (
+      {post.fields.featureImage ? (
         <Link
-          as={`/post/${post.content.slug}`}
-          href={`/post?slug=${post.content.slug}`}
+          as={`/post/${post.fields.slug}`}
+          href={`/post?slug=${post.fields.slug}`}
         >
           <a>
             <div className="log-entry-imgCont">
-              <img alt={post.content.title} src={post.content.featureImage} />
+              <img alt={post.fields.title} src={post.fields.featureImage} />
             </div>
           </a>
         </Link>
       ) : null}
       <Link
-        as={`/post/${post.content.slug}`}
-        href={`/post?slug=${post.content.slug}`}
+        as={`/post/${post.fields.slug}`}
+        href={`/post?slug=${post.fields.slug}`}
       >
         <a>
-          <h1 className="log-entry-title">{post.content.title}</h1>
+          <h1 className="log-entry-title">{post.fields.title}</h1>
         </a>
       </Link>
-      <span className="log-entry-subtitle">{post.content.subtitle}</span>
+      <span className="log-entry-subtitle">{post.fields.subtitle}</span>
     </div>
   );
 };

@@ -16,12 +16,12 @@ const Post = props => {
     <React.Fragment>
       <Head>
         <title>
-          {post.content.title} | {props.page.state.name}
+          {post.fields.title} | {props.page.state.name}
         </title>
-        {post.content.featureImage ? (
+        {post.fields.featureImage ? (
           <React.Fragment>
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:image" content={post.content.featureImage} />
+            <meta name="twitter:image" content={post.fields.featureImage} />
           </React.Fragment>
         ) : (
           <meta name="twitter:card" content="summary" />
@@ -29,17 +29,17 @@ const Post = props => {
 
         <meta name="twitter:site" content="@yaakovbennett" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={post.content.title} />
+        <meta property="og:title" content={post.fields.title} />
         <meta
           property="og:description"
           content={
-            post.content.subtitle
-              ? post.content.subtitle
+            post.fields.subtitle
+              ? post.fields.subtitle
               : "Article by " + props.page.state.name
           }
         />
-        {post.content.featureImage ? (
-          <meta property="og:image" content={post.content.featureImage} />
+        {post.fields.featureImage ? (
+          <meta property="og:image" content={post.fields.featureImage} />
         ) : null}
       </Head>
       <div id="header">
@@ -49,9 +49,9 @@ const Post = props => {
           </Link>
         </div>
         <Hamburger setNavOpen={props.page.setNavOpen} />
-        <div className="post-title">{post.content.title}</div>
-        {post.content.subtitle ? (
-          <div className="post-subtitle">{post.content.subtitle}</div>
+        <div className="post-title">{post.fields.title}</div>
+        {post.fields.subtitle ? (
+          <div className="post-subtitle">{post.fields.subtitle}</div>
         ) : null}
 
         <div className="post-timestamp">
@@ -67,22 +67,22 @@ const Post = props => {
       </div>
       <div
         id="post-body"
-        style={post.content.featureImage ? {} : { marginTop: "-20px" }}
+        style={post.fields.featureImage ? {} : { marginTop: "-20px" }}
       >
-        {post.content.featureImage ? (
+        {post.fields.featureImage ? (
           <img
-            alt={post.content.title}
-            src={post.content.featureImage}
+            alt={post.fields.title}
+            src={post.fields.featureImage}
             className="feature-image"
           />
         ) : null}
         <div className="wrapper">
-          <ReactMarkdown source={post.content.body} />
+          <ReactMarkdown source={post.fields.body} />
         </div>
-        {post.content.tags && post.content.tags.length > 0 ? (
+        {post.fields.tags && post.fields.tags.length > 0 ? (
           <div className="post-tags">
             <div style={{ fontSize: "12pt" }}>Tags:</div>
-            {post.content.tags.map((tag, index) => {
+            {post.fields.tags.map((tag, index) => {
               return (
                 <Link
                   as={`/tag/${tagUrl(tag)}`}
