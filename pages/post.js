@@ -1,7 +1,7 @@
 import axios from "axios";
 import Hamburger from "../components/hamburger";
 import Moment from "react-moment";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown/with-html";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -77,7 +77,7 @@ const Post = props => {
           />
         ) : null}
         <div className="wrapper">
-          <ReactMarkdown source={post.fields.body} />
+          <ReactMarkdown source={post.fields.body} escapeHtml={false} />
         </div>
         {post.fields.tags && post.fields.tags.length > 0 ? (
           <div className="post-tags">
