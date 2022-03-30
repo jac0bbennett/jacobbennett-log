@@ -72,7 +72,8 @@ const Home = props => {
 Home.getInitialProps = async ({ ctx }) => {
   const filter = {
     content_type: "post",
-    access_token: ctx.access_token
+    access_token: ctx.access_token,
+    return_fields: ["title", "subtitle", "slug", "featureImage"]
   };
   try {
     const req = await axios.post(
