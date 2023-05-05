@@ -4,6 +4,7 @@ import HeaderScrollListenerElement from '../components/app/headerScrollListener'
 import { SidemenuProvider } from '../context/useSidemenu';
 import SideMenu from '../components/app/sideMenu';
 import Hamburger from '../components/app/hamburger';
+import Link from 'next/link';
 
 export const revalidate = 60;
 
@@ -23,7 +24,7 @@ export default function RootLayout({
           <HeaderScrollListenerElement />
           <div id="fixed-header" className="fixed-header">
             <div className="post-author">
-              <a href="/">{name}</a>
+              <Link href="/">{name}</Link>
             </div>
             <Hamburger />
           </div>

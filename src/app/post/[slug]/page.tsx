@@ -4,6 +4,7 @@ import { getPostBySlug } from '../../../services/milk';
 import ReactMarkdown from 'react-markdown';
 import { DateTime } from 'luxon';
 import { authorName } from '../../../constants';
+import Link from 'next/link';
 
 interface PostProps {
   params: {
@@ -54,7 +55,7 @@ const Post = async ({ params }: PostProps) => {
     <>
       <div id="header">
         <div className="post-author">
-          <a href="/">{name}</a>
+          <Link href="/">{name}</Link>
         </div>
         <div className="post-title">{post.fields.title}</div>
         {post.fields.subtitle ? (
@@ -92,9 +93,9 @@ const Post = async ({ params }: PostProps) => {
             <div style={{ fontSize: '12pt' }}>Tags:</div>
             {post.fields.tags.map((tag, index) => {
               return (
-                <a href={`/tag/${tagUrl(tag)}`} key={index}>
+                <Link href={`/tag/${tagUrl(tag)}`} key={index}>
                   <span className="post-tag">{tag}</span>
-                </a>
+                </Link>
               );
             })}
           </div>

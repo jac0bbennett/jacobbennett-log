@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import LoadingIcon from '../../../components/app/loadingIcon';
 
 const Loading = () => {
@@ -5,7 +6,7 @@ const Loading = () => {
     <>
       <div id="header">
         <div className="post-author">
-          <a href="/">{process.env.NAME}</a>
+          <Link href="/">{process.env.NAME}</Link>
         </div>
       </div>
       <div className="flex flex-col justify-center items-center -mt-64">

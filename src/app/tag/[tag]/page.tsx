@@ -3,6 +3,7 @@ import { authorName } from '../../../constants';
 import TaggedPosts from '../../../components/tag/posts';
 import { Suspense } from 'react';
 import LoadingPosts from '../../../components/app/loadingPosts';
+import Link from 'next/link';
 
 interface TagPageProps {
   params: {
@@ -33,7 +34,7 @@ const TagPage = async ({ params }: TagPageProps) => {
     <>
       <div id="header">
         <div className="post-author">
-          <a href="/">{name}</a>
+          <Link href="/">{name}</Link>
         </div>
         <div className="post-title">
           <span style={{ fontSize: '60%', opacity: '85%' }}>Tag: </span>

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useSidemenu } from '../../context/useSidemenu';
 
 const SideMenu = () => {
@@ -21,8 +22,8 @@ const SideMenu = () => {
       </div>
 
       <div className="nav">
-        <a href="/">Log Home</a>
-        <a href="//jacobbennett.us/#portfolio">Projects</a>
+        <Link href="/">Log Home</Link>
+        <Link href="//jacobbennett.us/#portfolio">Projects</Link>
       </div>
     </div>
   );
