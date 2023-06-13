@@ -48,7 +48,9 @@ const Post = async ({ params }: PostProps) => {
     : null;
 
   const updatedAt = post.updatedAt
-    ? DateTime.fromJSDate(post.updatedAt).toLocaleString(DateTime.DATETIME_FULL)
+    ? DateTime.fromJSDate(new Date(post.updatedAt)).toLocaleString(
+        DateTime.DATETIME_FULL
+      )
     : null;
 
   return (
@@ -67,7 +69,7 @@ const Post = async ({ params }: PostProps) => {
           {updatedAt ? (
             <>
               {' - '}
-              (Updated {updatedAt}
+              (Updated {updatedAt})
             </>
           ) : null}
         </div>
