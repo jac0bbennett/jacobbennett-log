@@ -5,6 +5,7 @@ import { SidemenuProvider } from '../context/useSidemenu';
 import SideMenu from '../components/app/sideMenu';
 import Hamburger from '../components/app/hamburger';
 import Link from 'next/link';
+import {Analytics} from "@vercel/analytics/react"
 
 export const revalidate = 60;
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         </SidemenuProvider>
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
